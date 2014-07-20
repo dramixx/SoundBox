@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>SoundBox</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<link rel="stylesheet" href="res/jquery.mobile-1.4.3.css">
+		
+	<script src="res/jquery-1.11.1.min.js"></script>
+	<script src="res/ion.sound.js"></script>
+	<script src="res/jquery.mobile-1.4.3.min.js"></script>
+
+    </head>
+    <body>
+	
+	<script>
+		$(document).ready(function(){
+
+			$.ionSound({
+				sounds: [
+					"ferme_la"
+				],
+				path: "mp3/",
+				multiPlay: false,
+				volume: "1.0"
+			});
+
+			$("#ferme_la").on("click", function(){
+				$.ionSound.play("ferme_la");
+			});
+
+		});
+	</script>
+	
+	<div class="ui-grid-c">
+		<div class="ui-block-a"><button id="ferme_la" class="ui-shadow ui-btn ui-corner-all">Ferme la</button></div>
+	</div>
+    </body>
+</html>
