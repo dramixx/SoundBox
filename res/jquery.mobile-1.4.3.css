@@ -1668,7 +1668,9 @@ button.ui-btn,
 	box-sizing: border-box;
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	width: 100%;
+	width: 150px;
+	height: 150px;
+	white-space: normal;
 }
 button.ui-btn-inline,
 .ui-header button.ui-btn,
@@ -2549,6 +2551,7 @@ button.ui-btn-icon-notext,
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	text-align:center;
 }
 /* force new row */
 .ui-block-a {

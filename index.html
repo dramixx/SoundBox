@@ -9,12 +9,12 @@ and open the template in the editor.
         <title>SoundBox</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
+
 		<link rel="stylesheet" href="res/jquery.mobile-1.4.3.css">
 		
-	<script src="res/jquery-1.11.1.min.js"></script>
-	<script src="res/ion.sound.js"></script>
-	<script src="res/jquery.mobile-1.4.3.min.js"></script>
+		<script src="res/jquery-1.11.1.min.js"></script>
+		<script src="res/ion.sound.js"></script>
+		<script src="res/jquery.mobile-1.4.3.min.js"></script>
 
     </head>
     <body>
@@ -24,10 +24,16 @@ and open the template in the editor.
 
 			$.ionSound({
 				sounds: [
-					"ferme_la"
+					"ferme_la", 
+					"allezciao",
+					"congolexicomatisation",
+					"eddymalou",
+					"maisouicestclair",
+					"worstnoiseever"
+					
 				],
 				path: "mp3/",
-				multiPlay: false,
+				multiPlay: true,
 				volume: "1.0"
 			});
 
@@ -35,11 +41,61 @@ and open the template in the editor.
 				$.ionSound.play("ferme_la");
 			});
 
+			$("#allezciao").on("click", function(){
+				$.ionSound.play("allezciao");
+			});
+
+			$("#congolexicomatisation").on("click", function(){
+				$.ionSound.play("congolexicomatisation");
+			});
+
+			$("#eddymalou").on("click", function(){
+				$.ionSound.play("eddymalou");
+			});
+			
+			$("#maisouicestclair").on("click", function(){
+				$.ionSound.play("maisouicestclair");
+			});
+
+			$("#worstnoiseever").on("click", function(){
+				$.ionSound.play("worstnoiseever");
+			});
+
 		});
 	</script>
 	
-	<div class="ui-grid-c">
-		<div class="ui-block-a"><button id="ferme_la" class="ui-shadow ui-btn ui-corner-all">Ferme la</button></div>
+	<div data-role="page" class="type-interior">
+	
+		<div data-role="header">
+			<h1>SoundBox</h1>
+			<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+		</div>
+		
+		<div data-role="panel" data-display="push" data-theme="b" id="nav-panel">
+			<ul data-role="listview">
+				<li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
+					<li><a href="#panel-responsive-page2">IG</a></li>
+					<li><a href="#panel-responsive-page2">Eddy Malou</a></li>
+			</ul>
+		</div>
+		
+		<div data-role="content" >
+	
+		<button id="ferme_la" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ">Ferme la</button>
+		<button id="allezciao" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Allez Ciao</button>
+		<button id="congolexicomatisation" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Congolexicomatisation</button>
+		<button id="eddymalou" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Eddy Malou</button>
+		<button id="maisouicestclair" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Mais oui c'est clair</button>
+		<button id="worstnoiseever" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Worst noise ever</button>
+
+		
+		
+		</div>
+		
+			
 	</div>
+		
     </body>
+	
+
 </html>
