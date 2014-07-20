@@ -29,7 +29,9 @@ and open the template in the editor.
 					"congolexicomatisation",
 					"eddymalou",
 					"maisouicestclair",
-					"worstnoiseever"
+					"worstnoiseever", 
+					"mouyoumed",
+					"houloucouptere"
 					
 				],
 				path: "mp3/",
@@ -59,6 +61,14 @@ and open the template in the editor.
 
 			$("#worstnoiseever").on("click", function(){
 				$.ionSound.play("worstnoiseever");
+			});
+			
+			$("#houloucouptere").on("click", function(){
+				$.ionSound.play("houloucouptere");
+			});
+			
+			$("#mouyoumed").on("click", function(){
+				$.ionSound.play("mouyoumed");
 			});
 
 		});
@@ -96,16 +106,14 @@ and open the template in the editor.
 		</div>
 		
 		<div data-role="collapsible" data-content-theme="false" data-collapsed="false">
-		<h4>Autres</h4>	
+		<h4>Autres</h4>		
+		<button id="houloucouptere" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Houloucouptère</button>
+		<button id="mouyoumed" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Mouyoumed</button>
 		<button id="worstnoiseever" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Worst noise ever</button>
-
 		</div>
 	
-		
-		
 		</div>
-		
-			
+	
 	</div>
 		
     </body>
