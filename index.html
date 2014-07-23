@@ -9,158 +9,173 @@ and open the template in the editor.
         <title>SoundBox</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-		<script src="res/jquery-1.11.1.min.js"></script>
-		<script src="res/ion.sound.js"></script>
-		<script src="res/jquery.mobile-1.4.3.min.js"></script>
 
-		<script>
-		
-			 loadCSS = function(href) {
-				 var cssLink = $("<link rel='stylesheet' type='text/css' href='"+href+"'>");
-				 $("head").append(cssLink); 
-			 };
-			 
-			var isMobile = {
-				Android: function() {
-					return navigator.userAgent.match(/Android/i);
-				},
-				BlackBerry: function() {
-					return navigator.userAgent.match(/BlackBerry/i);
-				},
-				iOS: function() {
-					return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-				},
-				Opera: function() {
-					return navigator.userAgent.match(/Opera Mini/i);
-				},
-				Windows: function() {
-					return navigator.userAgent.match(/IEMobile/i);
-				},
-				any: function() {
-					return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());	
-				}
-			};
-		
-			if( isMobile.any() )
-				loadCSS("res/jquery.mobile-1.4.3_phone.css");
-			else
-				loadCSS("res/jquery.mobile-1.4.3.css");
-			
-			 
-		</script>
+        <script src="res/jquery-1.11.1.min.js"></script>
+        <script src="res/ion.sound.js"></script>
+        <script src="res/jquery.mobile-1.4.3.min.js"></script>
+
+        <script>
+
+            loadCSS = function(href) {
+                var cssLink = $("<link rel='stylesheet' type='text/css' href='" + href + "'>");
+                $("head").append(cssLink);
+            };
+
+            var isMobile = {
+                Android: function() {
+                    return navigator.userAgent.match(/Android/i);
+                },
+                BlackBerry: function() {
+                    return navigator.userAgent.match(/BlackBerry/i);
+                },
+                iOS: function() {
+                    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+                },
+                Opera: function() {
+                    return navigator.userAgent.match(/Opera Mini/i);
+                },
+                Windows: function() {
+                    return navigator.userAgent.match(/IEMobile/i);
+                },
+                any: function() {
+                    return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+                }
+            };
+
+            if (isMobile.any())
+                loadCSS("res/jquery.mobile-1.4.3_phone.css");
+            else
+                loadCSS("res/jquery.mobile-1.4.3.css");
+
+
+        </script>
 
     </head>
     <body>
-	
-	<script>
-		$(document).ready(function(){
-		
-			$.ionSound({
-				sounds: [
-					"ferme_la", 
-					"allezciao",
-					"congolexicomatisation",
-					"eddymalou",
-					"maisouicestclair",
-					"worstnoiseever", 
-					"mouyoumed",
-					"houloucouptere",
-					"ohlavachelesac"
-					
-				],
-				path: "mp3/",
-				multiPlay: true,
-				volume: "1.0"
-			});
 
-			$("#ferme_la").on("click", function(){
-				$.ionSound.play("ferme_la");
-			});
+        <script>
+            $(document).ready(function() {
 
-			$("#allezciao").on("click", function(){
-				$.ionSound.play("allezciao");
-			});
+                $.ionSound({
+                    sounds: [
+                        "ferme_la",
+                        "allezciao",
+                        "congolexicomatisation",
+                        "eddymalou",
+                        "maisouicestclair",
+                        "worstnoiseever",
+                        "mouyoumed",
+                        "houloucouptere",
+                        "ohlavachelesac",
+                        "anick",
+                        "navette",
+                        "mowtdewiwe"
 
-			$("#congolexicomatisation").on("click", function(){
-				$.ionSound.play("congolexicomatisation");
-			});
+                    ],
+                    path: "mp3/",
+                    multiPlay: true,
+                    volume: "1.0"
+                });
 
-			$("#eddymalou").on("click", function(){
-				$.ionSound.play("eddymalou");
-			});
-			
-			$("#maisouicestclair").on("click", function(){
-				$.ionSound.play("maisouicestclair");
-			});
+                $("#ferme_la").on("click", function() {
+                    $.ionSound.play("ferme_la");
+                });
 
-			$("#worstnoiseever").on("click", function(){
-				$.ionSound.play("worstnoiseever");
-			});
-			
-			$("#houloucouptere").on("click", function(){
-				$.ionSound.play("houloucouptere");
-			});
-			
-			$("#mouyoumed").on("click", function(){
-				$.ionSound.play("mouyoumed");
-			});
-			
-			$("#ohlavachelesac").on("click", function(){
-				$.ionSound.play("ohlavachelesac");
-			});
+                $("#allezciao").on("click", function() {
+                    $.ionSound.play("allezciao");
+                });
 
-		});
-		
-	</script>
-	
-	<div data-role="page" class="type-interior">
-	
-		<div data-role="header" data-position="fixed">
-			<h1>SoundBox</h1>
-			<a href="#nav-panel" data-icon="bars" data-iconpos="notext" >Menu</a>
-			<a href="#settings" class="ui-state-disabled"data-icon="gear" data-iconpos="notext">Settings</a>
-		</div>
-		
-		<div data-role="panel" data-display="push" data-theme="b" id="nav-panel">
-			<ul data-role="listview">
-				<li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
-					<li><a href="#header_IG">IG</a></li>
-					<li><a href="#header_EddyMalou">Eddy Malou</a></li>
-					<li><a href="#header_Autres">Autres</a></li>
-			</ul>
-		</div>
-		
-		<div data-role="panel" data-position="right" data-display="push" data-theme="a" id="settings">
-		</div>
-		
-		<div data-role="content" >
-		
-		<div id="header_IG" data-role="collapsible" data-content-theme="false" data-collapsed="false" >
-		<h4>IG</h4>
-		<button id="ferme_la" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ">Ferme la</button>
-		<button id="allezciao" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Allez Ciao</button>
-		<button id="ohlavachelesac" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Oh la vache le sac</button>
-		</div>
-	
-		<div data-role="collapsible" data-content-theme="false" data-collapsed="false">
-		<h4 id="header_EddyMalou">Eddy Malou</h4>
-		<button id="congolexicomatisation" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Congolexicomatisation</button>
-		<button id="eddymalou" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Eddy Malou</button>
-		<button id="maisouicestclair" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Mais oui c'est clair</button>
-		</div>
-		
-		<div id="header_Autres" data-role="collapsible" data-content-theme="false" data-collapsed="false">
-		<h4>Autres</h4>		
-		<button id="houloucouptere" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Houloucouptère</button>
-		<button id="mouyoumed" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Mouyoumed</button>
-		<button id="worstnoiseever" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Worst noise ever</button>
-		</div>
-	
-		</div>
-	
-	</div>
-		
+                $("#congolexicomatisation").on("click", function() {
+                    $.ionSound.play("congolexicomatisation");
+                });
+
+                $("#eddymalou").on("click", function() {
+                    $.ionSound.play("eddymalou");
+                });
+
+                $("#maisouicestclair").on("click", function() {
+                    $.ionSound.play("maisouicestclair");
+                });
+
+                $("#worstnoiseever").on("click", function() {
+                    $.ionSound.play("worstnoiseever");
+                });
+
+                $("#houloucouptere").on("click", function() {
+                    $.ionSound.play("houloucouptere");
+                });
+
+                $("#mouyoumed").on("click", function() {
+                    $.ionSound.play("mouyoumed");
+                });
+
+                $("#ohlavachelesac").on("click", function() {
+                    $.ionSound.play("ohlavachelesac");
+                });
+                $("#anick").on("click", function() {
+                    $.ionSound.play("anick");
+                });
+                $("#mowtdewiwe").on("click", function() {
+                    $.ionSound.play("mowtdewiwe");
+                });
+                $("#navette").on("click", function() {
+                    $.ionSound.play("navette");
+                });
+
+            });
+
+        </script>
+
+        <div data-role="page" class="type-interior">
+
+            <div data-role="header" data-position="fixed">
+                <h1>SoundBox</h1>
+                <a href="#nav-panel" data-icon="bars" data-iconpos="notext" >Menu</a>
+                <a href="#settings" class="ui-state-disabled" data-icon="gear" data-iconpos="notext">Settings</a>
+            </div>
+
+            <div data-role="panel" data-display="push" data-theme="b" id="nav-panel">
+                <ul data-role="listview">
+                    <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
+                    <li><a href="#header_IG">IG</a></li>
+                    <li><a href="#header_EddyMalou">Eddy Malou</a></li>
+                    <li><a href="#header_Autres">Autres</a></li>
+                </ul>
+            </div>
+
+            <div data-role="panel" data-position="right" data-display="push" data-theme="a" id="settings">
+            </div>
+
+            <div data-role="content" >
+
+                <div id="header_IG" data-role="collapsible" data-content-theme="false" data-collapsed="false" >
+                    <h4>IG</h4>
+                    <button id="ferme_la" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ">Ferme la</button>
+                    <button id="allezciao" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Allez Ciao</button>
+                    <button id="ohlavachelesac" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Oh la vache le sac</button>
+                    <button id="anick" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Anniiick</button>
+                    <button id="mowtdewiwe" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">MOWT DE WIWE</button>
+                    <button id="navette" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">La naveeeette</button>
+                </div>
+
+                <div data-role="collapsible" data-content-theme="false" data-collapsed="false">
+                    <h4 id="header_EddyMalou">Eddy Malou</h4>
+                    <button id="congolexicomatisation" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Congolexicomatisation</button>
+                    <button id="eddymalou" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Eddy Malou</button>
+                    <button id="maisouicestclair" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Mais oui c'est clair</button>
+                </div>
+
+                <div id="header_Autres" data-role="collapsible" data-content-theme="false" data-collapsed="false">
+                    <h4>Autres</h4>		
+                    <button id="houloucouptere" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Houloucouptère</button>
+                    <button id="mouyoumed" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Mouyoumed</button>
+                    <button id="worstnoiseever" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Worst noise ever</button>
+                </div>
+
+            </div>
+
+        </div>
+
     </body>
-	
+
 </html>
