@@ -1509,7 +1509,7 @@ div.ui-mobile-viewport {
 }
 /* Buttons and icons */
 .ui-btn {
-	font-size: 16px;
+	font-size: 14px;
 	margin: .5em 0;
 	padding: .7em 1em;
 	display: block;
@@ -1524,6 +1524,7 @@ div.ui-mobile-viewport {
 	-ms-user-select: none;
 	user-select: none;
 }
+
 .ui-btn-icon-notext,
 .ui-header button.ui-btn.ui-btn-icon-notext,
 .ui-footer button.ui-btn.ui-btn-icon-notext {
@@ -1596,6 +1597,14 @@ div.ui-mobile-viewport {
 	display: block;
 	width: 22px;
 	height: 22px;
+}
+
+.ui-btn-test{
+	content: "";
+	position: absolute;
+	display: block;
+	width: 17px;
+	height: 17px;
 }
 .ui-btn-icon-notext:after,
 .ui-btn-icon-left:after,
@@ -4704,8 +4713,4 @@ html .ui-popup .ui-field-contain > label + .ui-flipswitch {
 .ui-tabs {
 	position: relative;/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
 	padding: .2em;
-}
-
-.width50 {
-	width: 50px ;
 }
