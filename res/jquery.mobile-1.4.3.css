@@ -1668,15 +1668,20 @@ button.ui-btn,
 	box-sizing: border-box;
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	width: 150px;
-	height: 150px;
 	white-space: normal;
 }
+
+
 button.ui-btn-inline,
 .ui-header button.ui-btn,
 .ui-footer button.ui-btn {
 	width: auto;
+	height: 100px;
+	font-size: 18px;
 }
+
+
+
 /* Firefox adds a 1px border in a button element. We negate this to make sure they have the same height as other buttons in controlgroups. */
 button.ui-btn::-moz-focus-inner {
 	border: 0;
