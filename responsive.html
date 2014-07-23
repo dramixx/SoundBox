@@ -13,8 +13,44 @@ and open the template in the editor.
 		<script src="res/jquery-1.11.1.min.js"></script>
 		<script src="res/ion.sound.js"></script>
 		<script src="res/jquery.mobile-1.4.3.min.js"></script>
+
+		<script>
+			$(document).ready(function($){
+			 
+			 loadCSS = function(href) {
+				 var cssLink = $("<link rel='stylesheet' type='text/css' href='"+href+"'>");
+				 $("head").append(cssLink); 
+			 };
+			 
+			var isMobile = {
+				Android: function() {
+					return navigator.userAgent.match(/Android/i);
+				},
+				BlackBerry: function() {
+					return navigator.userAgent.match(/BlackBerry/i);
+				},
+				iOS: function() {
+					return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+				},
+				Opera: function() {
+					return navigator.userAgent.match(/Opera Mini/i);
+				},
+				Windows: function() {
+					return navigator.userAgent.match(/IEMobile/i);
+				},
+				any: function() {
+					return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());	
+				}
+			};
 		
-		<link rel="stylesheet" type="text/css" href="res/jquery.mobile-1.4.3.css">
+			if( isMobile.any() )
+				loadCSS("res/jquery.mobile-1.4.3_phone.css");
+			else
+				loadCSS("res/jquery.mobile-1.4.3.css");
+			
+			 
+			 });
+		</script>
 
     </head>
     <body>
@@ -78,6 +114,34 @@ and open the template in the editor.
 
 		});
 		
+		function test_device()
+		{
+		var isMobile = {
+			Android: function() {
+				return navigator.userAgent.match(/Android/i);
+			},
+			BlackBerry: function() {
+				return navigator.userAgent.match(/BlackBerry/i);
+			},
+			iOS: function() {
+				return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+			},
+			Opera: function() {
+				return navigator.userAgent.match(/Opera Mini/i);
+			},
+			Windows: function() {
+				return navigator.userAgent.match(/IEMobile/i);
+			},
+			any: function() {
+				return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());	
+			}
+		};
+		
+		if( isMobile.any() )
+			alert('Mobile');
+		else
+			alert('Computer');
+		}
 	</script>
 	
 	<div data-role="page" class="type-interior">
@@ -98,7 +162,7 @@ and open the template in the editor.
 		</div>
 		
 		<div data-role="panel" data-position="right" data-display="push" data-theme="a" id="settings">
-			<a id="go_mobile" href="mobile.html" data-role="button" data-ajax="false">Mobile version</a>
+			<button id="test_device" class="ui-shadow ui-btn ui-corner-all ui-btn-inline " onclick="test_device();">Test Device</button>
 		</div>
 		
 		<div data-role="content" >
