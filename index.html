@@ -9,18 +9,14 @@ and open the template in the editor.
         <title>SoundBox</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <script src="res/jquery-1.11.1.min.js"></script>
         <script src="res/ion.sound.js"></script>
         <script src="res/jquery.mobile-1.4.3.min.js"></script>
-
         <script>
-
             loadCSS = function(href) {
                 var cssLink = $("<link rel='stylesheet' type='text/css' href='" + href + "'>");
                 $("head").append(cssLink);
             };
-
             var isMobile = {
                 Android: function() {
                     return navigator.userAgent.match(/Android/i);
@@ -41,15 +37,11 @@ and open the template in the editor.
                     return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
                 }
             };
-
             if (isMobile.any())
                 loadCSS("res/jquery.mobile-1.4.3_phone.css");
             else
                 loadCSS("res/jquery.mobile-1.4.3.css");
-
-
         </script>
-
     </head>
     <body>
 
@@ -71,8 +63,10 @@ and open the template in the editor.
                         "navette",
                         "mowtdewiwe",
                         "pizzas4chaussures",
-                        "ilbrume"
-
+                        "ilbrume",
+                        "monlegrossanglier",
+                        "ehgaston",
+                        "hinhinhintresmarrant"
                     ],
                     path: "mp3/",
                     multiPlay: true,
@@ -134,6 +128,18 @@ and open the template in the editor.
                 $("#ilbrume").on("click", function() {
                     $.ionSound.play("ilbrume");
                 });
+                
+                $("#monlegrossanglier").on("click", function() {
+                    $.ionSound.play("monlegrossanglier");
+                });
+                
+                $("#ehgaston").on("click", function() {
+                    $.ionSound.play("ehgaston");
+                });
+                
+                $("#hinhinhintresmarrant").on("click", function() {
+                    $.ionSound.play("hinhinhintresmarrant");
+                });
             });
         </script>
 
@@ -168,6 +174,8 @@ and open the template in the editor.
                     <button id="mowtdewiwe" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">MOWT DE WIWE</button>
                     <button id="navette" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">La naveeeette</button>
                     <button id="ilbrume" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Il brûme</button>
+                    <button id="ehgaston" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Eh Gaston</button>
+                    <button id="monlegrossanglier" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">MÔÔÔN le gros sanglier</button>
                 </div>
 
                 <div data-role="collapsible" data-content-theme="false" data-collapsed="false">
@@ -183,12 +191,9 @@ and open the template in the editor.
                     <button id="mouyoumed" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Mouyoumed</button>
                     <button id="pizzas4chaussures" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Pizzas 4 chaussures</button>
                     <button id="worstnoiseever" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Worst noise ever</button>
+                    <button id="hinhinhintresmarrant" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Hinhinhin très marrant</button>
                 </div>
-
             </div>
-
         </div>
-
     </body>
-
 </html>
