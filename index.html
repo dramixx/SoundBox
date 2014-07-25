@@ -9,9 +9,75 @@ and open the template in the editor.
         <title>SoundBox</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div data-role="page" class="type-interior">
+
+            <div data-role="header" data-position="fixed">
+                <h1>SoundBox</h1>
+                <a href="#nav-panel" data-icon="bars" data-iconpos="notext" >Menu</a>
+                <a href="#settings" data-icon="gear" data-iconpos="notext">Settings</a>
+            </div>
+
+            <div data-role="panel" data-display="push" data-theme="b" id="nav-panel">
+                <ul data-role="listview">
+                    <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
+                    <li><a href="#header_IG">IG</a></li>
+                    <li><a href="#header_EddyMalou">Eddy Malou</a></li>
+                    <li><a href="#header_Autres">Autres</a></li>
+                </ul>
+            </div>
+
+            <div data-role="panel" data-position="right" data-display="push" data-theme="a" id="settings">
+                <ul data-role="listview">
+                    <li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+                        <label for="slider_replay" id="slider_replay-label" class="ui-slider">Replay</label>
+                        <select data-role="slider" id="slider_replay" name="slider_replay" class="ui-slider-switch" data-mini="true">
+                            <option value="off">Off</option>
+                            <option value="on">On</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+
+            <div data-role="content" >
+
+                <div id="header_IG" data-role="collapsible" data-content-theme="false" data-collapsed="false" >
+                    <h4>IG</h4>
+                    <button id="ferme_la" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ">Ferme la</button>
+                    <button id="allezciao" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Allez Ciao</button>
+                    <button id="ohlavachelesac" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Oh la vache le sac</button>
+                    <button id="anick" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Anniiick</button>
+                    <button id="mowtdewiwe" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">MOWT DE WIWE</button>
+                    <button id="navette" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">La naveeeette</button>
+                    <button id="ilbrume" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Il brûme</button>
+                    <button id="ehgaston" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Eh Gaston</button>
+                    <button id="monlegrossanglier" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">MÔÔÔN le gros sanglier</button>
+                </div>
+
+                <div data-role="collapsible" data-content-theme="false" data-collapsed="false">
+                    <h4 id="header_EddyMalou">Eddy Malou</h4>
+                    <button id="congolexicomatisation" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Congolexicomatisation</button>
+                    <button id="eddymalou" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Eddy Malou</button>
+                    <button id="maisouicestclair" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Mais oui c'est clair</button>
+                </div>
+
+                <div id="header_Autres" data-role="collapsible" data-content-theme="false" data-collapsed="false">
+                    <h4>Autres</h4>
+                    <button id="houloucouptere" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Houloucouptère</button>
+                    <button id="mouyoumed" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Mouyoumed</button>
+                    <button id="pizzas4chaussures" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Pizzas 4 chaussures</button>
+                    <button id="worstnoiseever" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Worst noise ever</button>
+                    <button id="hinhinhintresmarrant" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Hinhinhin très marrant</button>
+                </div>
+            </div>
+        </div>
+
+
         <script src="res/jquery-1.11.1.min.js"></script>
         <script src="res/ion.sound.js"></script>
         <script src="res/jquery.mobile-1.4.3.min.js"></script>
+        <script src="res/custom.js"></script>
         <script>
             loadCSS = function(href) {
                 var cssLink = $("<link rel='stylesheet' type='text/css' href='" + href + "'>");
@@ -42,9 +108,6 @@ and open the template in the editor.
             else
                 loadCSS("res/jquery.mobile-1.4.3.css");
         </script>
-    </head>
-    <body>
-
         <script>
             $(document).ready(function() {
 
@@ -108,92 +171,39 @@ and open the template in the editor.
                 $("#ohlavachelesac").on("click", function() {
                     $.ionSound.play("ohlavachelesac");
                 });
-                
+
                 $("#anick").on("click", function() {
                     $.ionSound.play("anick");
                 });
-                
+
                 $("#mowtdewiwe").on("click", function() {
                     $.ionSound.play("mowtdewiwe");
                 });
-                
+
                 $("#navette").on("click", function() {
                     $.ionSound.play("navette");
                 });
-                
+
                 $("#pizzas4chaussures").on("click", function() {
                     $.ionSound.play("pizzas4chaussures");
                 });
-                
+
                 $("#ilbrume").on("click", function() {
                     $.ionSound.play("ilbrume");
                 });
-                
+
                 $("#monlegrossanglier").on("click", function() {
                     $.ionSound.play("monlegrossanglier");
                 });
-                
+
                 $("#ehgaston").on("click", function() {
                     $.ionSound.play("ehgaston");
                 });
-                
+
                 $("#hinhinhintresmarrant").on("click", function() {
                     $.ionSound.play("hinhinhintresmarrant");
                 });
             });
         </script>
-
-        <div data-role="page" class="type-interior">
-
-            <div data-role="header" data-position="fixed">
-                <h1>SoundBox</h1>
-                <a href="#nav-panel" data-icon="bars" data-iconpos="notext" >Menu</a>
-                <a href="#settings" class="ui-state-disabled" data-icon="gear" data-iconpos="notext">Settings</a>
-            </div>
-
-            <div data-role="panel" data-display="push" data-theme="b" id="nav-panel">
-                <ul data-role="listview">
-                    <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
-                    <li><a href="#header_IG">IG</a></li>
-                    <li><a href="#header_EddyMalou">Eddy Malou</a></li>
-                    <li><a href="#header_Autres">Autres</a></li>
-                </ul>
-            </div>
-
-            <div data-role="panel" data-position="right" data-display="push" data-theme="a" id="settings">
-            </div>
-
-            <div data-role="content" >
-
-                <div id="header_IG" data-role="collapsible" data-content-theme="false" data-collapsed="false" >
-                    <h4>IG</h4>
-                    <button id="ferme_la" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ">Ferme la</button>
-                    <button id="allezciao" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Allez Ciao</button>
-                    <button id="ohlavachelesac" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Oh la vache le sac</button>
-                    <button id="anick" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Anniiick</button>
-                    <button id="mowtdewiwe" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">MOWT DE WIWE</button>
-                    <button id="navette" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">La naveeeette</button>
-                    <button id="ilbrume" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Il brûme</button>
-                    <button id="ehgaston" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Eh Gaston</button>
-                    <button id="monlegrossanglier" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">MÔÔÔN le gros sanglier</button>
-                </div>
-
-                <div data-role="collapsible" data-content-theme="false" data-collapsed="false">
-                    <h4 id="header_EddyMalou">Eddy Malou</h4>
-                    <button id="congolexicomatisation" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Congolexicomatisation</button>
-                    <button id="eddymalou" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Eddy Malou</button>
-                    <button id="maisouicestclair" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Mais oui c'est clair</button>
-                </div>
-
-                <div id="header_Autres" data-role="collapsible" data-content-theme="false" data-collapsed="false">
-                    <h4>Autres</h4>		
-                    <button id="houloucouptere" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Houloucouptère</button>
-                    <button id="mouyoumed" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Mouyoumed</button>
-                    <button id="pizzas4chaussures" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Pizzas 4 chaussures</button>
-                    <button id="worstnoiseever" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Worst noise ever</button>
-                    <button id="hinhinhintresmarrant" class="ui-shadow ui-btn ui-corner-all ui-btn-inline"  style="white-space: normal;">Hinhinhin très marrant</button>
-                </div>
-            </div>
-        </div>
     </body>
 </html>
