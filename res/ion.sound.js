@@ -69,6 +69,14 @@
 
         $sound = sounds[name];
 
+        // remove the previous to avoid
+        // getting N+1 listeners
+        var listener = function (event) {
+            $sound.removeEventListener(event.type, listener);
+            $(document).trigger('event_replay', info);
+        };
+        $sound.addEventListener('ended', listener);
+
         if (typeof $sound !== "object" || $sound === null) {
             return;
         }
