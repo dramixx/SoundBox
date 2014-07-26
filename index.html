@@ -9,6 +9,43 @@ and open the template in the editor.
         <title>SoundBox</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<script src="res/jquery-1.11.1.min.js"></script>
+        <script src="res/ion.sound.js"></script>
+        <script src="res/jquery.mobile-1.4.3.min.js"></script>
+        <script src="res/custom.js"></script>
+		
+        <script>
+            loadCSS = function(href) {
+                var cssLink = $("<link rel='stylesheet' type='text/css' href='" + href + "'>");
+                $("head").append(cssLink);
+            };
+            var isMobile = {
+                Android: function() {
+                    return navigator.userAgent.match(/Android/i);
+                },
+                BlackBerry: function() {
+                    return navigator.userAgent.match(/BlackBerry/i);
+                },
+                iOS: function() {
+                    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+                },
+                Opera: function() {
+                    return navigator.userAgent.match(/Opera Mini/i);
+                },
+                Windows: function() {
+                    return navigator.userAgent.match(/IEMobile/i);
+                },
+                any: function() {
+                    return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+                }
+            };
+            if (isMobile.any())
+                loadCSS("res/jquery.mobile-1.4.3_phone.css");
+            else
+                loadCSS("res/jquery.mobile-1.4.3.css");
+        </script>
+		
     </head>
     <body>
         <div data-role="page" class="type-interior">
@@ -73,41 +110,6 @@ and open the template in the editor.
             </div>
         </div>
 
-
-        <script src="res/jquery-1.11.1.min.js"></script>
-        <script src="res/ion.sound.js"></script>
-        <script src="res/jquery.mobile-1.4.3.min.js"></script>
-        <script src="res/custom.js"></script>
-        <script>
-            loadCSS = function(href) {
-                var cssLink = $("<link rel='stylesheet' type='text/css' href='" + href + "'>");
-                $("head").append(cssLink);
-            };
-            var isMobile = {
-                Android: function() {
-                    return navigator.userAgent.match(/Android/i);
-                },
-                BlackBerry: function() {
-                    return navigator.userAgent.match(/BlackBerry/i);
-                },
-                iOS: function() {
-                    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-                },
-                Opera: function() {
-                    return navigator.userAgent.match(/Opera Mini/i);
-                },
-                Windows: function() {
-                    return navigator.userAgent.match(/IEMobile/i);
-                },
-                any: function() {
-                    return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-                }
-            };
-            if (isMobile.any())
-                loadCSS("res/jquery.mobile-1.4.3_phone.css");
-            else
-                loadCSS("res/jquery.mobile-1.4.3.css");
-        </script>
         <script>
             $(document).ready(function() {
 
