@@ -72,6 +72,30 @@ and open the template in the editor.
                         </select>
                     </li>
                 </ul>
+                </br>
+                <a href="#infosDialog" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a">Infos</a>
+            </div>
+
+            <div data-role="popup" id="infosDialog" data-dismissible="false">
+                <div data-role="header">
+                    <h1>Quoi qu'est-ce que qu'c'est?</h1>
+                </div>
+                <div role="main" class="ui-content">
+                    <h2>Définition</h2>
+                    <p>Une soundbox, "boîte à sons" c'est un ensemble de pleins de sons drôles. lol.</br> Ceux-ci sont triés par catégories, que vous pouvez ouvrir/fermer.</p></br>
+                    <h3 class="ui-title">Les fonctionnalités :</h3>
+                    <p>Appui court : Lance un son</p>
+                    <p>Appui long : Ouvre une pop-up permettant de :</p>
+                    <ul>
+                        <li>Arrêter un son</li>
+                        <li>Copier l'URL</li>
+                    </ul>
+                    <p>Le menu Settings (accessible vie le bouton en haut à droite) : </p>
+                    <ul>
+                        <li>Mode Repeat : répète les sons en boucle</li>
+                    </ul>
+                    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Okaaaay</a>
+                </div>
             </div>
 
             <div data-role="content" >
@@ -122,24 +146,24 @@ and open the template in the editor.
 
                 var id_clicked;
                 var sounds = [
-                        "ferme_la",
-                        "allezciao",
-                        "congolexicomatisation",
-                        "eddymalou",
-                        "maisouicestclair",
-                        "worstnoiseever",
-                        "mouyoumed",
-                        "houloucouptere",
-                        "ohlavachelesac",
-                        "anick",
-                        "navette",
-                        "mowtdewiwe",
-                        "pizzas4chaussures",
-                        "ilbrume",
-                        "monlegrossanglier",
-                        "ehgaston",
-                        "hinhinhintresmarrant"
-                    ];
+                    "ferme_la",
+                    "allezciao",
+                    "congolexicomatisation",
+                    "eddymalou",
+                    "maisouicestclair",
+                    "worstnoiseever",
+                    "mouyoumed",
+                    "houloucouptere",
+                    "ohlavachelesac",
+                    "anick",
+                    "navette",
+                    "mowtdewiwe",
+                    "pizzas4chaussures",
+                    "ilbrume",
+                    "monlegrossanglier",
+                    "ehgaston",
+                    "hinhinhintresmarrant"
+                ];
 
                 $.ionSound({
                     sounds: sounds,
@@ -147,17 +171,17 @@ and open the template in the editor.
                     multiPlay: true,
                     volume: "1.0"
                 });
-                
-                sounds.forEach(function(s) 
-                { 
-                   $("#" + s).on("click", function() {
+
+                sounds.forEach(function(s)
+                {
+                    $("#" + s).on("click", function() {
                         $.ionSound.play(s);
-                   });
-                   
-                   $("#" + s).on("taphold", function() {
-                    id_clicked = s;
-                    $("#popupOptions").popup("open");
-                   });
+                    });
+
+                    $("#" + s).on("taphold", function() {
+                        id_clicked = s;
+                        $("#popupOptions").popup("open");
+                    });
                 }
                 );
 
