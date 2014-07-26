@@ -9,9 +9,9 @@ and open the template in the editor.
         <title>SoundBox</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-		<script src="res/jquery-1.11.1.min.js"></script>
-		
+
+        <script src="res/jquery-1.11.1.min.js"></script>
+
         <script>
             loadCSS = function(href) {
                 var cssLink = $("<link rel='stylesheet' type='text/css' href='" + href + "'>");
@@ -42,7 +42,7 @@ and open the template in the editor.
             else
                 loadCSS("res/jquery.mobile-1.4.3.css");
         </script>
-		
+
     </head>
     <body>
         <div data-role="page" class="type-interior">
@@ -76,9 +76,14 @@ and open the template in the editor.
 
             <div data-role="content" >
 
+                <div data-role="popup" id="popupOptions" class="ui-content">
+                    <a id="stfu" data-role="button" data-inline="true">STFU</a>
+                    <a id="cpy_link"  data-role="button" data-inline="true" class="ui-state-disabled">Copy link</a>
+                </div>
+
                 <div id="header_IG" data-role="collapsible" data-content-theme="false" data-collapsed="false" >
                     <h4>IG</h4>
-                    <button id="ferme_la" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ">Ferme la</button>
+                    <button id="ferme_la" class="ui-shadow ui-btn ui-corner-all ui-btn-inline " >Ferme la</button>
                     <button id="allezciao" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Allez Ciao</button>
                     <button id="ohlavachelesac" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Oh la vache le sac</button>
                     <button id="anick" class="ui-shadow ui-btn ui-corner-all ui-btn-inline">Anniiick</button>
@@ -106,8 +111,8 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
-		
-		
+
+
         <script src="res/ion.sound.js"></script>
         <script src="res/jquery.mobile-1.4.3.min.js"></script>
         <script src="res/custom.js"></script>
@@ -115,8 +120,8 @@ and open the template in the editor.
         <script>
             $(document).ready(function() {
 
-                $.ionSound({
-                    sounds: [
+                var id_clicked;
+                var sounds = [
                         "ferme_la",
                         "allezciao",
                         "congolexicomatisation",
@@ -134,79 +139,32 @@ and open the template in the editor.
                         "monlegrossanglier",
                         "ehgaston",
                         "hinhinhintresmarrant"
-                    ],
+                    ];
+
+                $.ionSound({
+                    sounds: sounds,
                     path: "mp3/",
                     multiPlay: true,
                     volume: "1.0"
                 });
+                
+                sounds.forEach(function(s) 
+                { 
+                   $("#" + s).on("click", function() {
+                        $.ionSound.play(s);
+                   });
+                   
+                   $("#" + s).on("taphold", function() {
+                    id_clicked = s;
+                    $("#popupOptions").popup("open");
+                   });
+                }
+                );
 
-                $("#ferme_la").on("click", function() {
-                    $.ionSound.play("ferme_la");
+                $("#stfu").on("click", function() {
+                    $.ionSound.stop(id_clicked);
                 });
 
-                $("#allezciao").on("click", function() {
-                    $.ionSound.play("allezciao");
-                });
-
-                $("#congolexicomatisation").on("click", function() {
-                    $.ionSound.play("congolexicomatisation");
-                });
-
-                $("#eddymalou").on("click", function() {
-                    $.ionSound.play("eddymalou");
-                });
-
-                $("#maisouicestclair").on("click", function() {
-                    $.ionSound.play("maisouicestclair");
-                });
-
-                $("#worstnoiseever").on("click", function() {
-                    $.ionSound.play("worstnoiseever");
-                });
-
-                $("#houloucouptere").on("click", function() {
-                    $.ionSound.play("houloucouptere");
-                });
-
-                $("#mouyoumed").on("click", function() {
-                    $.ionSound.play("mouyoumed");
-                });
-
-                $("#ohlavachelesac").on("click", function() {
-                    $.ionSound.play("ohlavachelesac");
-                });
-
-                $("#anick").on("click", function() {
-                    $.ionSound.play("anick");
-                });
-
-                $("#mowtdewiwe").on("click", function() {
-                    $.ionSound.play("mowtdewiwe");
-                });
-
-                $("#navette").on("click", function() {
-                    $.ionSound.play("navette");
-                });
-
-                $("#pizzas4chaussures").on("click", function() {
-                    $.ionSound.play("pizzas4chaussures");
-                });
-
-                $("#ilbrume").on("click", function() {
-                    $.ionSound.play("ilbrume");
-                });
-
-                $("#monlegrossanglier").on("click", function() {
-                    $.ionSound.play("monlegrossanglier");
-                });
-
-                $("#ehgaston").on("click", function() {
-                    $.ionSound.play("ehgaston");
-                });
-
-                $("#hinhinhintresmarrant").on("click", function() {
-                    $.ionSound.play("hinhinhintresmarrant");
-                });
             });
         </script>
     </body>
