@@ -100,11 +100,14 @@ and open the template in the editor.
 
             <div data-role="content" >
 
-                <div data-role="popup" id="popupOptions" class="ui-content">
-                    <a id="stfu" data-role="button" data-inline="true">STFU</a>
-                    <a id="cpy_link"  data-role="button" data-inline="true" class="ui-state-disabled">Copy link</a>
+                <div data-role="popup" id="popupMenu" data-theme="b">
+                    <ul data-role="listview" data-inset="true" style="min-width:210px;">
+                        <li data-role="list-divider">Options</li>
+                        <li><a href="#" id="stfu">Shut the fuck up !</a></li>
+                        <li><a href="#" id="cpy_link">Lien du mp3</a></li>
+                    </ul>
                 </div>
-
+                
                 <div id="header_IG" data-role="collapsible" data-content-theme="false" data-collapsed="false" >
                     <h4>IG</h4>
                     <button id="ferme_la" class="ui-shadow ui-btn ui-corner-all ui-btn-inline " >Ferme la</button>
@@ -144,7 +147,7 @@ and open the template in the editor.
         <script>
             $(document).ready(function() {
 
-                var id_clicked;
+                var id_clicked, x_clicked, y_clicked;
                 var sounds = [
                     "ferme_la",
                     "allezciao",
@@ -180,13 +183,22 @@ and open the template in the editor.
 
                     $("#" + s).on("taphold", function() {
                         id_clicked = s;
-                        $("#popupOptions").popup("open");
+                        var position = $(this).position();
+                        x_clicked = position.left;
+                        y_clicked = position.top;
+                        $("#popupMenu").popup("open", {transition: "pop", x: x_clicked, y: y_clicked});
                     });
                 }
                 );
 
                 $("#stfu").on("click", function() {
                     $.ionSound.stop(id_clicked);
+                    $("#popupMenu").popup("close");
+                });
+
+                $("#cpy_link").on("click", function() {
+                    window.prompt("Copier dans le presse-papiers : Ctrl+C puis touche Entrée", "http://dramixx.free.fr/Soundbox/mp3/" + id_clicked + ".mp3");
+                    
                 });
 
             });
