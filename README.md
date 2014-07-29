@@ -1,10 +1,8 @@
 # [WIP] SoundBox
-================
 
 Share your favourite sounds, bitches.
 
-## Contributing
-===============
+# Contributing
 
 ### Coding Standards
 
