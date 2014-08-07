@@ -18,7 +18,7 @@
     // html of the span
     var html = spanElement.innerHTML;
     var regexp = /#sound:([A-Za-z]+)/i;
-    var replace = '<audio controls style="width:50%" src="http://dramixx.free.fr/Soundbox/mp3/\$1.mp3" type="audio/mpeg"></audio>';
+    var replace = '<audio controls style="width:50%" src="https://tzouille.no-ip.org/soundbox/mp3/\$1.mp3" type="audio/mpeg"></audio>';
     
     // we replace
     html = html.replace(regexp, replace);
