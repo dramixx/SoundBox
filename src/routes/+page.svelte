@@ -34,7 +34,7 @@
 		filteredSoundIds === null ||
 		categories.some((cat) => cat.sounds.some((s) => filteredSoundIds!.has(s.id)));
 
-	$: playingCount = $playing.size;
+
 
 	function handlePlay(e: CustomEvent<Sound>) {
 		play(e.detail.id, e.detail.file);
@@ -123,21 +123,6 @@
 
 	<!-- Main content -->
 	<main class="flex-1 max-w-4xl mx-auto w-full px-4 py-4">
-		<!-- Status bar: playing count or stop all button -->
-		{#if playingCount > 0}
-			<div class="flex items-center justify-between mb-4 px-3 py-2 bg-indigo-600/10 border border-indigo-500/20 rounded-xl">
-				<span class="text-sm text-indigo-300">
-					{playingCount} son{playingCount > 1 ? 's' : ''} en cours
-				</span>
-				<button
-					class="text-xs text-indigo-300 hover:text-white bg-indigo-500/20 hover:bg-indigo-500/40 px-3 py-1 rounded-lg transition-colors"
-					on:click={stopAll}
-				>
-					Tout arrêter
-				</button>
-			</div>
-		{/if}
-
 		<!-- Sound Categories -->
 		{#if hasAnyResults}
 			{#each categories as category (category.id)}
